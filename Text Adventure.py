@@ -12,26 +12,52 @@ EAST = 1
 SOUTH = 2
 WEST = 3
 
+x = 2
+y = 2
+
 while (True):
 
-    x,y = initialposition
-    playerposition = rooms[x][y]
-    print(playerposition)
+    playerposition = rooms_exits[x][y]
+    #print(playerposition)
 
     print ("What now?")
     command = input()
 
     if(command == "north"):
-        print ("You moved North...")
+        if rooms_exits[x][y][NORTH]:
+            print ("You moved North...")
+            y = y - 1
+        else:
+            print ("You can't move North...")
     elif(command == "south"):
-        print("You moved south...")
+        if rooms_exits[x][y][SOUTH]:
+            print ("You moved South...")
+            y = y + 1
+        else:
+            print ("You can't move South...")
     elif(command == "west"):
-        print("You moved west...")
+        if rooms_exits[x][y][WEST]:
+            print ("You moved West...")
+            x = x - 1
+        else:
+            print ("You can't move West...")
     elif(command == "east"):
-        print("You moved east...")
+        if rooms_exits[x][y][EAST]:
+            print ("You moved East...")
+            x = x + 1
+        else:
+            print ("You can't move East...")
     elif(command == "up"):
-        print("You moved north...")
+        if rooms_exits[x][y][NORTH]:
+            print ("You moved North...")
+            y = y - 1
+        else:
+            print ("You can't move North...")
     elif(command == "down"):
-        print("You moved south...")
+        if rooms_exits[x][y][SOUTH]:
+            print ("You moved South...")
+            y = y + 1
+        else:
+            print ("You can't move South...")
     else:
         print("I don't understand " + command + " !")
